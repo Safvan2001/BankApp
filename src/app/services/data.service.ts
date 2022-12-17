@@ -32,5 +32,42 @@ register(acno:any,uname:any,psw:any){
 
 }
 
+login(acno:any,psw:any){
+  
+  var userDeatails=this.userDeatails
+  // alert('login clicked')
 
+if(acno in userDeatails){
+if(psw==userDeatails[acno]["password"]){
+return true
+}else{
+return false
+}
+}else{
+return false
+}
+
+
+}
+deposit(acno:any,password:any,amount:any){
+  var userDeatails=this.userDeatails
+  var amnt=parseInt(amount)
+  if(acno in userDeatails){
+  if(password==userDeatails[acno]["password"]){
+   userDeatails[acno]["balance"]+=amnt
+   return userDeatails[acno]["balance"]
+
+  }
+  else{
+    return false
+  }
+
+}else{
+  return false
+}
+
+}
+withdraw(acno:any,password:any,amount:any,balance:any){
+
+}
 }

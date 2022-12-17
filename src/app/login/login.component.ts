@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -18,25 +19,36 @@ export class LoginComponent {
     1003:{acno:1003,username:"mega",password:123,balance:0}
 
   }
-  constructor(private router:Router){}
+  constructor(private router:Router,private ds:DataService){}
 
 
   login(){
     var acno=this.acno
     var psw=this.psw
     var userDeatails=this.userDeatails
-    // alert('login clicked')
+const result=this.ds.login(acno,psw)
+if(result){
+  alert('login success')
+  this.router.navigateByUrl('dashboard')
+}else{
+  alert('incurrect username or password')
+}
 
-if(acno in userDeatails){
-if(psw==userDeatails[acno]["password"]){
-  alert("login success")
-this.router.navigateByUrl('dashboard')
-}else{
-  alert("incurrect password")
-}
-}else{
-  alert("incurrect account number")
-}
+
+
+
+//     // alert('login clicked')
+
+// if(acno in userDeatails){
+// if(psw==userDeatails[acno]["password"]){
+//   alert("login success")
+// this.router.navigateByUrl('dashboard')
+// }else{
+//   alert("incurrect password")
+// }
+// }else{
+//   alert("incurrect account number")
+// }
 
 
   }

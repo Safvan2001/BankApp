@@ -1,6 +1,6 @@
 <div class="container w-75 mt-5 bg-black text-white p-5">
     <h4>Register form</h4>
-      <form action="">
+      <form action="" (ngSubmit)="register()">
        
           <div class="mb-3 ">
               <label for="user" class="form-label">user name</label>
@@ -17,7 +17,7 @@
               <input type="password" name="psw" [(ngModel)]="psw"   class="form-control" >
             </div>
             
-            <button type="submit" (click)="register()" class="btn btn-primary">Signup</button>
+            <button type="submit"  class="btn btn-primary">Signup</button>
       
       </form>
   </div>
