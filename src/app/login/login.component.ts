@@ -19,35 +19,56 @@ export class LoginComponent {
   }
 
 
-  login(){
-    var acno=this.acno
-    var psw=this.psw
-    var userDeatails=this.userDeatails
-    // alert('login clicked')
+//   login(){
+// //     var acno=this.acno
+// //     var psw=this.psw
+// //     var userDeatails=this.userDeatails
+// //     // alert('login clicked')
 
-if(acno in userDeatails){
-if(psw==userDeatails[acno]["password"]){
-  alert("login success")
+// // if(acno in userDeatails){
+// // if(psw==userDeatails[acno]["password"]){
+// //   alert("login success")
 
-}else{
-  alert("incurrect password")
-}
-}else{
-  alert("incurrect account number")
-}
+// // }else{
+// //   alert("incurrect password")
+// // }
+// // }else{
+// //   alert("incurrect account number")
+// // }
 
 
-  }
-  acnoChange(event:any){
-
-this.acno=event.target.value
-// console.log(this.acno);
-
-  }
-  pswChange(event:any){
-    this.psw=event.target.value
-    console.log(this.psw);
+  // }
+  login(a:any,b:any){
+    this.acno=a.value
+    this.psw=b.value
+        var acno=this.acno
+        var psw=this.psw
+        var userDeatails=this.userDeatails
+        // alert('login clicked')
     
-  }
+    if(acno in userDeatails){
+    if(psw==userDeatails[acno]["password"]){
+      alert("login success")
+    
+    }else{
+      alert("incurrect password")
+    }
+    }else{
+      alert("incurrect account number")
+    }
+    
+    
+      }
+//   acnoChange(event:any){
 
-}
+// this.acno=event.target.value
+// // console.log(this.acno);
+
+//   }
+//   pswChange(event:any){
+//     this.psw=event.target.value
+//     console.log(this.psw);
+    
+//   }
+
+ }
