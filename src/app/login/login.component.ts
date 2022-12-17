@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,48 +18,57 @@ export class LoginComponent {
     1003:{acno:1003,username:"mega",password:123,balance:0}
 
   }
+  constructor(private router:Router){}
 
 
-//   login(){
-// //     var acno=this.acno
-// //     var psw=this.psw
-// //     var userDeatails=this.userDeatails
-// //     // alert('login clicked')
+  login(){
+    var acno=this.acno
+    var psw=this.psw
+    var userDeatails=this.userDeatails
+    // alert('login clicked')
 
-// // if(acno in userDeatails){
-// // if(psw==userDeatails[acno]["password"]){
-// //   alert("login success")
+if(acno in userDeatails){
+if(psw==userDeatails[acno]["password"]){
+  alert("login success")
+this.router.navigateByUrl('dashboard')
+}else{
+  alert("incurrect password")
+}
+}else{
+  alert("incurrect account number")
+}
 
-// // }else{
-// //   alert("incurrect password")
-// // }
-// // }else{
-// //   alert("incurrect account number")
-// // }
 
-
-  // }
-  login(a:any,b:any){
-    this.acno=a.value
-    this.psw=b.value
-        var acno=this.acno
-        var psw=this.psw
-        var userDeatails=this.userDeatails
-        // alert('login clicked')
-    
-    if(acno in userDeatails){
-    if(psw==userDeatails[acno]["password"]){
-      alert("login success")
-    
-    }else{
-      alert("incurrect password")
-    }
-    }else{
-      alert("incurrect account number")
-    }
+  }
+  // login(a:any,b:any){
     
     
-      }
+    
+    
+    
+    
+    
+    
+    // this.acno=a.value
+    // this.psw=b.value
+    //     var acno=this.acno
+    //     var psw=this.psw
+    //     var userDeatails=this.userDeatails
+    //     // alert('login clicked')
+    
+    // if(acno in userDeatails){
+    // if(psw==userDeatails[acno]["password"]){
+    //   alert("login success")
+    
+    // }else{
+    //   alert("incurrect password")
+    // }
+    // }else{
+    //   alert("incurrect account number")
+    // }
+    
+    
+      // }
 //   acnoChange(event:any){
 
 // this.acno=event.target.value

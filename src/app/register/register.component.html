@@ -1,0 +1,23 @@
+<div class="container w-75 mt-5 bg-black text-white p-5">
+    <h4>Register form</h4>
+      <form action="">
+       
+          <div class="mb-3 ">
+              <label for="user" class="form-label">user name</label>
+              <input type="" name="uname" [(ngModel)]="uname"  class="form-control" >
+            </div>
+            
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Account number</label>
+              <input type="" name="acno" [(ngModel)]="acno"   class="form-control">
+            </div>
+           
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="psw" [(ngModel)]="psw"   class="form-control" >
+            </div>
+            
+            <button type="submit" (click)="register()" class="btn btn-primary">Signup</button>
+      
+      </form>
+  </div>

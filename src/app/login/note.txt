@@ -15,3 +15,40 @@ html - view
           1.2.1 event binding - (eventname)="method name()"
           1.2.2 event binding using $event - (eventname)="methodname($event)"
           1.2.3 event binding using template rendering variable  -  #variable
+
+
+2.two way Binding
+      2.1 ngmodel  [(ngmodel)]="value"
+                   FormsModule  (3rd party Library)
+
+
+
+
+    Redirection in Angular
+    ----------------------
+
+Redirection in JavaScript-window.location
+
+navigateByUrl - method used for Redirection
+
+Router - predefined class
+
+AppRoutingModule - module
+
+package/module-main folder
+
+
+Dependency injection
+--------------------
+- to use a method of class in another class
+- in constructor 
+
+-steps          access specifier - public or private
+                 variable
+                 class name
+                           private variable:Classname
+
+
+Angular services
+-----------------
+ng g s servicename
