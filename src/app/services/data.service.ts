@@ -21,9 +21,9 @@ register(acno:any,uname:any,psw:any){
 
     return false
   }else{
-    userDeatails[acno]={acno,username:uname,password:psw,balance:0,transaction:[]}
-    console.log(userDeatails);
+    userDeatails[acno]={acno,username: uname,password: psw,balance:0,transaction:[]}
     
+    console.log(userDeatails);
     
     return true
   }
@@ -38,14 +38,15 @@ login(acno:any,psw:any){
   var userDeatails=this.userDeatails
   // alert('login clicked')
 
-  // store acnumber
-  this.currentacno=acno
-  // store username
-  this.currentuser=userDeatails[acno]["username"]
+  
+  
 
 if(acno in userDeatails){
 if(psw==userDeatails[acno]["password"]){
-
+  // store acnumber
+  this.currentacno=acno
+// store username
+this.currentuser=userDeatails[acno]["username"]
   //
 return true
 }else{

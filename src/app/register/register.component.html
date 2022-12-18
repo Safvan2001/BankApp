@@ -1,20 +1,31 @@
 <div class="container w-75 mt-5 bg-black text-white p-5">
-    <h4>Register form</h4>
-      <form action="" (ngSubmit)="register()">
-       
+    
+      <form action="" (ngSubmit)="register()" [formGroup]="registerForm">
+       <h4>Register form</h4>
           <div class="mb-3 ">
               <label for="user" class="form-label">user name</label>
-              <input type="" name="uname" [(ngModel)]="uname"  class="form-control" >
+              <input type="" name="uname" formControlName="uname" class="form-control" >
+            </div>
+            <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+              <p class="text-danger">invalid username</p>
+  
             </div>
             
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Account number</label>
-              <input type="" name="acno" [(ngModel)]="acno"   class="form-control">
+              <input type="" name="acno"  formControlName="acno" class="form-control">
             </div>
-           
+            <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+              <p class="text-danger">invalid Account number</p>
+  
+            </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" name="psw" [(ngModel)]="psw"   class="form-control" >
+              <input type="password" name="psw"  formControlName="psw" class="form-control">
+            </div>
+            <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+              <p class="text-danger">invalid Password</p>
+  
             </div>
             
             <button type="submit"  class="btn btn-primary">Signup</button>

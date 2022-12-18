@@ -76,7 +76,7 @@ Angular Directives :- Uses to manage DOM in Angular
 
 Form validation in Angular
 ----------------------------
-
+We can create forms in two way
     1. Template driven Form
 
     2.Model driven Form
@@ -87,3 +87,18 @@ Form validation in Angular
 
           FormBuilder       - class of ReactiveFormsModule
                      -group,array,control
+                     
+  Validate Model Form
+    -------------------
+
+    Validator - a class in angular it includes methods for apply validation
+
+
+    Access Errors in Validator AppRoutingModule
+        ...........................................
+           
+                this.registerForm.get('uname')?.errors 
+                                       
+                                       -valid/invalid error
+                                       -valid:Empty response
+                                       -invalid:content
