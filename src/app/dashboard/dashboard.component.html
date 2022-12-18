@@ -1,3 +1,5 @@
+<h1>Welcome {{user}}</h1>
+<a style="background: black;color: white;" routerLink="/transaction">View Transaction history</a>
 <div class="container w-50 bg-black text-white mt-5">
     <form  action="" (ngSubmit)="deposit()">
         <h1 style="font-weight: bold;">Deposit Form</h1>
@@ -24,15 +26,15 @@
     <form  action="" (ngSubmit)="withdraw()">
         <h1 style="font-weight: bold;">Withdraw Form</h1>
         <div class="mt-2 p-2">
-            <input name="acno1"  class="form-control p-2" type="text" placeholder="Enter your Account number" >
+            <input name="acno1" [(ngModel)]="acno1" class="form-control p-2" type="text" placeholder="Enter your Account number" >
         </div>
      
         <div class="mt-2 p-2">
-            <input name="psw1"  class="form-control p-2" type="password" placeholder="Enter Password" >
+            <input name="psw1" [(ngModel)]="psw1" class="form-control p-2" type="password" placeholder="Enter Password" >
         </div>
         
         <div class="mt-2 p-2">
-            <input name="amnt1"  class="form-control p-2" type="text" placeholder="Enter Amount" >
+            <input name="amnt1" [(ngModel)]="amnt1"  class="form-control p-2" type="text" placeholder="Enter Amount" >
         </div>
         
         <div class="mt-2 p-2 text-center">
