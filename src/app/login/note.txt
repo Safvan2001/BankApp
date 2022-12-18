@@ -59,3 +59,31 @@ routerLink
 ...........
 eg
 routerLink="/transaction"
+
+
+
+Angular Directives :- Uses to manage DOM in Angular
+------------------
+
+1.structural directives - uses to handle structured datas in view of a component
+
+     - ngFor : can directly apply in html to access elements from array
+
+     - ngIf  : can directly apply in html to access elements from array
+
+
+
+
+Form validation in Angular
+----------------------------
+
+    1. Template driven Form
+
+    2.Model driven Form
+          - Reactive Form
+          ----------------
+
+          ReactiveFormsModule : module used to create module forms
+
+          FormBuilder       - class of ReactiveFormsModule
+                     -group,array,control

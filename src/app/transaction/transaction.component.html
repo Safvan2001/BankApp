@@ -10,14 +10,11 @@
            </tr>
         </thead>
         <tbody>
-            <tr >
-                <td style="border: 3px solid  #ffffff">Debit</td>
-                <td style="border: 3px solid  #ffffff">1000</td>
+            <tr *ngFor="let i of transaction">
+                <td style="border: 3px solid  #ffffff">{{i.type}}</td>
+                <td style="border: 3px solid  #ffffff">{{i.amount}}</td>
             </tr>
-            <tr >
-                <td style="border: 3px solid  #ffffff">Credit</td>
-                <td style="border: 3px solid  #ffffff">1000</td>
-            </tr>
+            
             
         </tbody>
     </table>
