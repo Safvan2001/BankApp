@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class DashboardComponent {
   amnt1=''
   user=''
 
-  constructor(private ds:DataService,private fb:FormBuilder){
+  constructor(private ds:DataService,private fb:FormBuilder,private router:Router){
     // access username 
    this.user=this.ds.currentuser
    
@@ -70,6 +71,13 @@ export class DashboardComponent {
 
 
 
+  }
+  logout(){
+    localStorage.removeItem('currentuser')
+    localStorage.removeItem('currentacno')
+
+
+    this.router.navigateByUrl('')
   }
 
 }

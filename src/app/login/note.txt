@@ -102,3 +102,13 @@ We can create forms in two way
                                        -valid/invalid error
                                        -valid:Empty response
                                        -invalid:content
+
+
+
+   Local Storage in Angular
+   ------------------------
+   localStorage used to datas permenently.(low capacity) 
+
+   -store : localStorage.setItem()
+   -access : localStorage.getItem()
+   -delete : localStorage.removeItem()                                    
