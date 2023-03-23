@@ -10,8 +10,13 @@ export class TransactionComponent {
 acno:any
 transaction:any
   constructor(private ds:DataService) {
-  this.acno=this.ds.currentacno
-    this.transaction=this.ds.gettransaction(this.acno)
+  this.acno=JSON.parse(localStorage.getItem('currentacno')||'')
+    this.ds.gettransaction(this.acno).subscribe((result:any)=>{
+      this.transaction=result.message
+    },
+    (result:any)=>{
+      alert(result.error.message)
+    })
 
 console.log(this.transaction);
 // for(i of transaction)

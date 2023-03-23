@@ -28,14 +28,26 @@ register(){
   var psw=this.registerForm.value.psw
 
 if(this.registerForm.valid){
-  const result=this.ds.register(acno,uname,psw)
-if(result){
-  alert('registration success')
-  this.router.navigateByUrl('')
-}else{
-  alert('user already exist')
-  this.router.navigateByUrl('')
-}
+
+
+  this.ds.register(acno,uname,psw).subscribe((result:any)=>{
+    alert(result.message)
+    this.router.navigateByUrl('')
+  },
+  result=>{
+    alert(result.error.message)
+    this.router.navigateByUrl('')
+  })
+  
+
+
+// if(result){
+//   alert('registration success')
+//   this.router.navigateByUrl('')
+// }else{
+//   alert('user already exist')
+//   this.router.navigateByUrl('')
+// }
 
 }else{
   alert('invalid form')

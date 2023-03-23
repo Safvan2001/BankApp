@@ -9,7 +9,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  acno=""
+  dateandtime:any
+  acno:any
   psw=''
   amnt=''
 
@@ -19,8 +20,15 @@ export class DashboardComponent {
   user=''
 
   constructor(private ds:DataService,private fb:FormBuilder,private router:Router){
+
+
+    this.dateandtime=new Date()
+
+    if(localStorage.getItem('currentuser')){
+      this.user=JSON.parse(localStorage.getItem('currentuser') || '')
+
+    }
     // access username 
-   this.user=this.ds.currentuser
    
   }
   depositForm=this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
@@ -30,6 +38,18 @@ export class DashboardComponent {
   withdrawForm=this.fb.group({acno1:['',[Validators.required,Validators.pattern('[0-9]+')]],
   psw1:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]],
   amnt1:['',[Validators.required,Validators.pattern('[0-9]+')]]})
+
+
+  ngOnInit(): void {
+   if(!localStorage.getItem('token')){
+    alert('please login first')
+    this.router.navigateByUrl('')
+   }
+
+
+  }
+
+
   deposit(){
     var acno=this.depositForm.value.acno
     var psw=this.depositForm.value.psw
@@ -37,16 +57,21 @@ export class DashboardComponent {
 
 
     if(this.depositForm.valid){
-      const result=this.ds.deposit(acno,psw,amnt)
-      if(result){
-        alert(`${amnt} created to your ac and the balance is ${result}`)
-      }else{
-        alert('incurrect acnumber or password')
-      }
+      this.ds.deposit(acno,psw,amnt).subscribe((result:any)=>{
+        alert(`${amnt} is credited to your ac and the balance is ${result.message}`)
+      },
+      result=>{
+        alert(result.error.message)
+      })
+    //   if(result){
+    //     alert(`${amnt} created to your ac and the balance is ${result}`)
+    //   }else{
+    //     alert('incurrect acnumber or password')
+    //   }
 
-    }else{
+     }else{
       alert("invalid form")
-    }
+     }
    
 
   }
@@ -58,26 +83,51 @@ export class DashboardComponent {
 
 
     if(this.withdrawForm.valid){
-      const result=this.ds.withdraw(acno1,psw1,amnt1)
-    if(result){
-      alert(`${amnt1} is debited and the balance is ${result}`)
-    }
-
-
+      this.ds.withdraw(acno1,psw1,amnt1).subscribe((result:any)=>{
+        alert(`${amnt1} is credited to your ac and the balance is ${result.message}`)
+},
+result=>{
+  alert(result.error.message)
+}
+)
+    
     }else{
       alert('invalid form')
     }
     
 
-
-
   }
   logout(){
     localStorage.removeItem('currentuser')
     localStorage.removeItem('currentacno')
-
+    localStorage.removeItem('token')
 
     this.router.navigateByUrl('')
+  }
+
+  deleteconfirm(){
+    this.acno=JSON.parse(localStorage.getItem('currentacno') || "")
+  }
+  oncancel(){
+    this.acno=""
+  }
+
+  delete(event:any){
+    this.ds.deleteacc(event).subscribe((result:any)=>{
+      alert(result.message)
+
+      this.logout()
+      
+    },
+    result=>{
+     
+      alert(result.error.message)
+    })
+
+
+    // alert(event)
+
+
   }
 
 }
